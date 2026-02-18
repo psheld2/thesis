@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang='en'>
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>A Sample Thesis in Mathematics</dc:title>
+    <dc:language>en</dc:language>
+    <meta property="schema:accessMode">textual</meta>
+    <meta property="schema:accessibilityHazard">noFlashingHazard</meta>
+    <meta property="schema:accessibilityHazard">noMotionSimulationHazard</meta>
+    <meta property="schema:accessibilityHazard">noSoundHazard</meta>
+    <meta property="schema:accessibilityFeature">none</meta>
+    <meta property="schema:accessModeSufficient">textual</meta>
+    <meta property="dcterms:modified">2026-02-18T00:33:38Z</meta>
+    <dc:identifier id="pub-id">urn:uuid:77c88227-0c61-11f1-ba88-ed75e65c98d8</dc:identifier>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" properties="nav" media-type="application/xhtml+xml"/>
+    <item id="_thesis.xhtml" href="thesis.xhtml" media-type="application/xhtml+xml" properties="mathml svg"/>
+    <item id="_LaTeXML.css" href="LaTeXML.css" media-type="text/css"/>
+    <item id="_ltx-book.css" href="ltx-book.css" media-type="text/css"/>
+    <item id="_ltx-listings.css" href="ltx-listings.css" media-type="text/css"/>
+    <item id="_x1.jpg" href="x1.jpg" media-type="image/jpeg"/>
+    <item id="_images_x2F_DoRDecoding.png" href="images/DoRDecoding.png" media-type="image/png"/>
+  </manifest>
+  <spine>
+    <itemref idref="_thesis.xhtml"/>
+  </spine>
+</package>
