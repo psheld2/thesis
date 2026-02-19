@@ -1,0 +1,30 @@
+ \documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+\begin{document}
+\begin{tikzpicture}[thick]
+\node[inner sep=0pt] (i_10) at (-1.5,0)
+{\includegraphics[width=1.35\textwidth]{../images/DoR_n2.png}};
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (-7.6,-5.5) --  (-2.35,-5.5);
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (-2.35,-5.5) --  (1.85,-5.5);
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (1.85,-5.5) --  (5.1,-5.5); 
+    \node at(3,-6) [right,fill=green,opacity=0,text opacity=1] {\large $\mathcal{I}^j_{n_l,k}$};
+    \node at(-.5,-6) [right,fill=green,opacity=0,text opacity=1] {\large $\mathcal{C}^j_{n_l,k }$};
+    \node at(-5.4,-6) [right,fill=green,opacity=0,text opacity=1] {\large  $\mathcal{O}^j_{n_l,k}$};
+    \node at(-4.8,1.7) [right,fill=green,opacity=0,text opacity=1,text=red] {\large{Type-1}};
+    \node at(1.9,-3.5) [right,fill=green,opacity=0,text opacity=1,text=orange] {\large{Type-1, $W\in\mathcal{K}^j$}};
+    \node at(1.9,-4) [right,fill=green,opacity=0,text opacity=1,text=orange] {\large{Type-2, $W\notin\mathcal{K}^j$}};
+    \node at(1.9,-2.35) [right,fill=white,opacity=100,text opacity=1] {\Large $\lambda_0$};
+    \node at(1.9,3.03) [right,fill=white,opacity=100,text opacity=1] {\Large $\lambda_0$};
+    \node at(-3.25,-2.35) [right,fill=white,opacity=100,text opacity=1] {\Large  $\lambda_1$};
+    \node at(-3.25,3.03) [right,fill=white,opacity=100,text opacity=1] {\Large $\lambda_1$};
+    %\node at(-3.4,4.15) [right,fill=white,opacity=100,text opacity=.0] {\Huge 0000000000};
+    %\node at(-3.4,-1.25) [right,fill=white,opacity=100,text opacity=.0] {\Huge 0000000000};
+    \node at(-1.5,5 ) [right,fill=white,opacity=100,text opacity=1] {\Large $\mathsf{i}^{n_l}$};
+    \node at(-1.5,-0.8) [right,fill=white,opacity=100,text opacity=1] {\Large $\bar{\mathsf{i}}^{n_l}$};
+\end{tikzpicture}
+\end{document}
