@@ -25,7 +25,7 @@
 
 %LatexML
 \usepackage{latexml}
-
+\usepackage{subcaption}
 % Layout
 \usepackage{geometry}
 \geometry{margin=1in}
@@ -219,50 +219,50 @@ This is a standard result from algebra.
 \chapter{Early Decoding}
  
 \section{Decode or Reject}
-\begin{figure}
+\begin{figure}[h]
 \centering
-\begin{minipage}{0.49\textwidth}
+\begin{subfigure}[b]{0.45\textwidth}
 \centering
-\includegraphics[width=\linewidth]{tikz_plots/DoRDecodingOverview_n2-1.png}
+\includegraphics[width=\textwidth]{tikz_plots/DoRDecodingOverview_n2-1.png}
 \caption{Image 1 test}
 \label{fig:image1}
-\end{minipage}%
+\end{subfigure}%
 \hfill
-\begin{minipage}{0.49\textwidth}
+\begin{subfigure}[b]{0.45\textwidth}
 \centering
-\includegraphics[width=\linewidth]{tikz_plots/DoRDecodingOverview_n4-1.png}
+\includegraphics[width=\textwidth]{tikz_plots/DoRDecodingOverview_n4-1.png}
 \caption{Image 2 test}
 \label{fig:image2}
-\end{minipage}
+\end{subfigure}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{tikz_plots/DoRDecodingOverview_n2-1.png}
-\caption{DoR Decoding Scheme for message $k$ at channel use $n_l=2$ .}
-\label{fig:DoRExampleDecoding_n2}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics{tikz_plots/DoRDecodingOverview_n2-1.png}
+%\caption{DoR Decoding Scheme for message $k$ at channel use $n_l=2$ .}
+%\label{fig:DoRExampleDecoding_n2}
+%\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{tikz_plots/DoRDecodingOverview_n4-1.png}
-\caption{DoR Decoding Scheme for message $k$ at channel use $n_l=4$ .}
-\label{fig:DoRexampleDecoding_n4}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics{tikz_plots/DoRDecodingOverview_n4-1.png}
+%\caption{DoR Decoding Scheme for message $k$ at channel use $n_l=4$ .}
+%\label{fig:DoRexampleDecoding_n4}
+%\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{tikz_plots/TIERDecodingOverview_n2-1.png}
-\caption{TIER Decoding Scheme for message $k$ at channel use $n_l=2$ .}
-\label{fig:TIERexampleDecoding}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics{tikz_plots/TIERDecodingOverview_n2-1.png}
+%\caption{TIER Decoding Scheme for message $k$ at channel use $n_l=2$ .}
+%\label{fig:TIERexampleDecoding}
+%\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{tikz_plots/TIERDecodingOverview_n4-1.png}
-\caption{TIER Decoding Scheme for message $k$ at channel use $n_l=4$ .}
-\label{fig:exampleDecoding}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics{tikz_plots/TIERDecodingOverview_n4-1.png}
+%\caption{TIER Decoding Scheme for message $k$ at channel use $n_l=4$ .}
+%\label{fig:exampleDecoding}
+%\end{figure}
 
 
 
