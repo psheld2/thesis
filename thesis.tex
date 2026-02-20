@@ -174,7 +174,7 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
 \doublespacing %other options are \onehalfspacing or \singlespacing
 
 \chapter{Introduction}
-This is the introduction chapter. We cite some classic works \cite{Hartshorne,Mumford}.  
+This is the introduction chapter. We cite some classic works \cite{9585608}.  
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt nisi sed neque volutpat, et imperdiet metus congue. Donec interdum, neque at varius vehicula, elit odio tempus sapien, sed finibus lorem felis nec turpis. Aliquam erat volutpat. Mauris vehicula imperdiet erat, non aliquet magna commodo id.
 
@@ -229,7 +229,7 @@ This is a standard result from algebra.
 \end{proof}
 
 \chapter{Early Decoding}
-
+ 
 \section{Decode or Reject}
 \begin{figure}
 \centering
@@ -276,22 +276,24 @@ Here we collect some supporting lemmas.
 \backmatter 
 \singlespacing
 
-\begin{thebibliography}{9}
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{refs} % Entries are in the refs.bib file
+%\begin{thebibliography}{9}
 
 
-\bibitem{Hartshorne}
-R.~Hartshorne, \emph{Algebraic Geometry}, Springer-Verlag, New York, 1977.
+%\bibitem{Hartshorne}
+%R.~Hartshorne, \emph{Algebraic Geometry}, Springer-Verlag, New York, 1977.
 
-\bibitem{Mumford}
-D.~Mumford, \emph{Abelian Varieties}, Oxford University Press, 1970.
+%\bibitem{Mumford}
+%D.~Mumford, \emph{Abelian Varieties}, Oxford University Press, 1970.
 
-\bibitem{DraismaEtAl}
-J.~Draisma, E.~Horobet, G.~Ottaviani, B.~Sturmfels, and R.~R.~Thomas, 
-``The Euclidean distance degree of an algebraic variety,'' 
-\emph{arXiv:1309.0049} (2013).  
-Available at: \href{https://arxiv.org/abs/1309.0049}{https://arxiv.org/abs/1309.0049}
+%\bibitem{DraismaEtAl}
+%J.~Draisma, E.~Horobet, G.~Ottaviani, B.~Sturmfels, and R.~R.~Thomas, 
+%``The Euclidean distance degree of an algebraic variety,'' 
+%\emph{arXiv:1309.0049} (2013).  
+%Available at: \href{https://arxiv.org/abs/1309.0049}{https://arxiv.org/abs/1309.0049}
 
-\end{thebibliography}
+%\end{thebibliography}
 
 
 \end{document}
