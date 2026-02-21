@@ -8,6 +8,7 @@
 
 \documentclass[12pt,reqno,oneside]{amsbook}
 
+%\newcommand{\NOTOVERLEAF}{}
 
 \usepackage[english]{babel}  %Language needs to be specified for accessibility; currently this is not working well with latexml
 
@@ -193,7 +194,7 @@ This is a standard result from algebra.
 \chapter{Early Decoding}
 \section{Introduction}
 \subsection{\ac{DoR} Decoding}
-
+\ifdefined\NOTOVERLEAF
 \begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
@@ -212,7 +213,8 @@ This is a standard result from algebra.
 \label{fig:DoRDecodingOverview}
 \caption{Overview of DoR Decoding}
 \end{figure}
-
+\fi
+\ifdefined\NOTOVERLEAF
 \subsection{TIER Decoding}
 \begin{figure}[h]
 \centering
@@ -232,16 +234,16 @@ This is a standard result from algebra.
 \label{fig:TIERDecodingOverview}
 \caption{Overview of TIER Decoding}
 \end{figure}
-
+\fi
 \section{Results}
-
+\ifdefined\NOTOVERLEAF
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{tikz_plots/lambdaExplore-1.png}
 \label{fig:LambdaResponses}
 \caption{Respnse to change in $\lambda_0, \lambda_1$}
 \end{figure}
-
+\fi
 
 
 \section{Second main result}
