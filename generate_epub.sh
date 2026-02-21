@@ -1,5 +1,6 @@
 mkdir tmp
-latexmlc -out tmp/thesis.epub thesis.tex
+latexml --dest=refs.bib.xml refs.bib
+latexmlc --bibliography=refs.bib.xml --destination=tmp/thesis.epub thesis.tex
 cd tmp
 unzip thesis.epub
 patch OPS/content.opf ../patches/content.patch

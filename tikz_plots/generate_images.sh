@@ -6,3 +6,5 @@ pdftoppm -png -r 1200 DoRDecodingOverview_n2.pdf DoRDecodingOverview_n2
 pdftoppm -png -r 1200 DoRDecodingOverview_n4.pdf DoRDecodingOverview_n4
 pdftoppm -png -r 1200 TIERDecodingOverview_wNotInK_n2.pdf TIERDecodingOverview_wNotInK_n2
 pdftoppm -png -r 1200 TIERDecodingOverview_wInK_n2.pdf TIERDecodingOverview_wInK_n2
+pdflatex --shell-escape lambdaExplore.tex
+pdftoppm -png -r 1200 lambdaExplore.pdf lambdaExplore 
