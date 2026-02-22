@@ -4,7 +4,7 @@
 %Check heading structure of tableofcontents and listoffigures etc.
 \documentclass[12pt,reqno,oneside]{amsbook}
 
-%\newcommand{\NOTOVERLEAF}{}
+%\newcommand{\NOTOVERLEAF}{}:119
 
 \usepackage[english]{babel}  %Language needs to be specified for accessibility; currently this is not working well with latexml
 
@@ -120,7 +120,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 \end{acronym}
 
 \chapter{Summary}
-\ac{AWGN} dui. Aenean ut eros et nisl sagittis vestibulum.
+\ac{AWGN} dui. \ac{DoR} nean ut eros et nisl sagittis vestibulum.
 
 
 
@@ -226,6 +226,8 @@ This is a standard result from algebra.
 \end{figure}
 \fi
 \section{Results}
+\include{DoR_Proof}
+\section{Numeric Simulations}
 \ifdefined\NOTOVERLEAF
 \begin{figure}[h]
 \centering

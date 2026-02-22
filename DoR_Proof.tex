@@ -1,0 +1,578 @@
+\subsection{Proof of Theorem \ref{thm:infoDensityAchievabilityDoR}}
+\label{appendix:thm1Proof}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline 
+$\mathcal{M}$&Set of all messages
+\\ \hline 
+$M$&Cardinality of $\mathcal{M}$
+\\ \hline
+$W$& Random variable representing the transmitted msg
+\\ \hline 
+$j$&Selected message subset index, $j\in\binom{M}{K}$
+\\ \hline  
+$\mathcal{K}^j$&Selected subset of messages  
+\\ \hline
+$\Vert\mathcal{K}^j\Vert$&Cardinality of subset of desired msgs  in $K$
+\\ \hline
+$\mathcal{L}$&Set of decoding times, $\mathcal{L} = \{n_1, n_2, \cdots n_L\}$
+\\ \hline
+$L$&Number of decoding times $L=\Vert \mathcal{L} \Vert$.
+\\ \hline
+$n$&Fixed length of full codeword
+\\ \hline
+$\bar{n}$&Average symbol activity of receiver
+\\ \hline
+$\mathsf{i}^{n_l}$&The info density computed on the conditional output 
+\\&$y^{n_l}$ 
+\\ \hline\rule{0pt}{3ex}    
+$\bar{\mathsf{i}}^{n_l}$&Info density induced by the average channel output 
+\\ \hline
+\end{tabular}
+
+\caption*{Variable Descriptions}
+\label{table:variableDescription}
+\end{table}
+
+Our achievable scheme utilizes a codebook generated at random from the PS of dimension $n$, as described in Section \ref{section:codeconsruction}. 
+We derive the achievability bound based on executing a pair of sequential hypothesis tests (SHT) utilizing the info densities defined in ~\eqref{eq:infoDensityDefnCompact} for each $k\in\mathcal{K}^j$ where $\mathcal{K}^j$ is 
+ chosen uniformly at random from the set  $\mathcal{J}$, with $j\sim\mathcal{U}(1,\binom{M}{K})$.
+%Each pair of SHTs test against identical hypotheses utilizing identical statistics, but different thresholds. 
+
+Each SHT considers two hypotheses:
+\begin{subequations}
+\begin{align}
+H_0: Y^n&\sim P^n_0,
+\\H_1: Y^n&\sim P^n_1
+\end{align}
+\end{subequations}
+Let $P_0^{i} (P_1^{i})$ denote the marginal distribution of $P_0^n (P_1^n)$ through the first $i$ symbols in $P_0^n (P_1^n)$ at channel use $i\in\mathcal{L}$, Either $H_0:Y^i\sim P_0^{i}$ or $H_1:Y^i\sim P_1^{i}$ is determined.  Let $\tau$ be a stopping time adapted to the filtration $\{\mathcal{F}(Y^i)\}_{i\in \mathcal{L}}$. Let $\delta$ be a $\{0,1\}$-valued $\mathcal{F}(\tau)$ function. We are interested in  SHTs of the form $(\delta,\tau,n)$ where $\delta$ is the decision rule, $\tau$ is the stopping time, and $n$ is the set of all channel uses available for decisions. 
+
+As our achievable scheme makes use of $2K$ total SHTs, we utilize subscripts $a,b$ in SHT identification and parameterization: $\text{SHT}_{a,b},(\delta_{a,b},\tau_{a,b},n), a\in(0,1),b\in(k)$ in order to uniquely specify each SHT.   
+ 
+Given the preceding definition of each SHT, we proceed to define the complete set of SHTs required to execute our scheme. Let $\text{SHT-P}_{k}\triangleq \{\text{SHT}_{0,k},\text{SHT}_{1,k}\}$ be the pair of SHTs testing for message $k\in\mathcal{K}^j$ with $\text{SHT}_{0,k}\triangleq(\delta_{0,k},\tau_{o,k},n)$, and  $\text{SHT}_{1,k}\triangleq(\delta_{1,k},\tau_{1,k},n)$ choosing between hypotheses: 
+\begin{subequations}
+\begin{align}
+H_{0}:(X^n,Y^n)&\sim P_{X^n}\times P_{Y^n|X^n},
+\\H_1:(X^n,Y^n)&\sim P_{X^n}\times P_{Y^n}
+\end{align}
+\end{subequations}
+Above for readability, and in the remainder of this section, the dependence on $j$ will be omitted from the variable names. For each SHT fix two thresholds, $\lambda_0$ and $\lambda_1$, and let
+\begin{subequations}
+\begin{align}
+\nonumber&\text{SHT}_{0,k}\triangleq (\delta_{0,k},\tau_{0,k},n):
+\\&\begin{cases}
+\tau_{0,k} \hspace{-1em}&\triangleq \begin{cases}
+\min\{n_l\in \mathcal{L}:\mathsf{i}^{n_l}_{k}\geq \lambda_0\}&\text{if }\exists n_l\in \mathcal{L}:\mathsf{i}^{n_l}_{k}\geq \lambda_0
+\\n&\text{otherwise}
+\end{cases},
+\\
+\vspace{-1em}
+\\\delta_{0,k}&\triangleq
+\begin{cases}
+0 \quad \text{if}\quad \mathsf{i}^{\tau_{0,k}}_{k}\geq \lambda_0
+\vspace{0.5em}
+\\
+1 \quad \text{if}\quad \mathsf{i}^{\tau_{0,k}}_{k}< \lambda_0 \end{cases}
+\end{cases}
+\label{eq:sht_0k}
+\end{align}
+\vspace{-2em}
+\begin{align}
+\nonumber&\text{SHT}_{1,k}\triangleq (\delta_{1,k},\tau_{1,k},n):
+\\&\begin{cases}
+\tau_{1,k} \hspace{-1em}&\triangleq \begin{cases}
+\min\{n_l\in \mathcal{L}:\mathsf{i}^{n_l}_{k}\leq \lambda_1\}&\text{if }\exists n_l\in \mathcal{L}:\mathsf{i}^{n_l}_{k}\leq \lambda_1
+\\n&\text{otherwise}
+\end{cases},
+\\
+\vspace{-1em}
+\\\delta_{1,k}&\triangleq
+\begin{cases}
+0 \quad \text{if}\quad \mathsf{i}^{\tau_{0,k}}_{k}\geq \lambda_1
+\vspace{0.5em}
+\\
+1 \quad \text{if}\quad \mathsf{i}^{\tau_{0,k}}_{k}< \lambda_1
+\end{cases}
+\end{cases}
+\label{eq:sht_1k}
+\end{align}
+\end{subequations}
+%\begin{subequations}
+%\begin{align}
+%\text{SHT}_{1,k}:\quad\tau_{1,k} &= \inf\{l\in \mathcal{L} :\mathsf{i}^{n_l}_{y,k}< \lambda_1\}
+%\\\tilde{\tau}_{1,k} &= \min(\tau_{1,k},n)
+%\label{eq:tildetauHT1}
+%\\\delta_{1,k}&=
+%\begin{cases}
+%0 \quad \text{if}\quad %\mathsf{i}^{\tilde{\tau}_{1,k}}_{y,k}
+%\geq \lambda_1\\
+%1 \quad \text{if}\quad  %\mathsf{i}^{\tilde{\tau}_{1,k}}_{y,k}< %\lambda_1
+%\end{cases}
+%\end{align}
+%\end{subequations}
+
+For each potential decoding point, the decoder simultaneously runs the $K$ pairs of hypothesis tests until 
+ either $H_0$ is declared by \textit{any} $\text{SHT}_{0,k}$ or $H_1$ is declared by \textit{all} $\text{SHT}_{1,k}$s.  
+ If $H_0$ is not declared by any $\text{SHT}_{0,k}$ and some $\text{SHT}_{1,k}$ declares $H_0$,  the decoder is not yet confident enough to make a decision and continues to the next potential decoding point.
+ Define for $s\in\{0,1\},r\in\{0,1\}$ 
+\begin{align}
+\tau_{r,k}^s\triangleq
+\begin{cases}
+\tau_{r,k }\quad\text{if}\quad \delta_{r,k}=s
+\\\infty\quad\text{otherwise}
+\end{cases}
+\end{align}
+Of interest to our dual SHT operation are:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline$\tau_{0,k}^0$&$\tau_{0,k}$ value in $\mathcal{L}$ which $SHT_{0,k}$ determines $H_0$
+\\&or $\infty$ if $SHT_{0,k}$ deterhmines $H_1$
+\\\hline$\tau_{1,k}^1$&$\tau_{1,k}$ value in $\mathcal{L}$ which $SHT_{1,k}$ determines $H_1$
+\\&or $\infty$ if $SHT_{1,k}$ determines $H_0$
+\\\hline\end{tabular}
+\end{table}
+The random decoding time of this code based on the decoding operation described in the preceding paragaph is then defined as:
+\begin{align}
+\tau^* = \min\left\{\min_{k\in\mathcal{K}^j}\tau^0_{0,k},\max_{k\in\mathcal{K}^j}\tau^1_{1,k},n\right\}
+\end{align}
+
+The output of the decoder is the unique $k$ associated with the first SHT pair to determine $H_0$. \begin{align}
+\phi_{\tau^*}()\triangleq
+\begin{cases}
+k\quad \text{if}\quad\left(\tau^* = \tau^0_{0,k}\right)\cap\left( \tau^* < \underset{m\in\mathcal{K}^j\backslash k}{\min}\tau^0_{0,m}\right)
+\\\emptyset\quad\text{otherwise}
+\label{eq:decoding definition}
+\end{cases}
+\end{align}
+If the decoder is not able to make a determination at the final decoding point $n$, more than one $\text{SHT}_{0,k}$ declares $H_0$ on the same decoding opportunity, or all SHT pairs decide $H_1$, $\emptyset$ is declared. %Otherwise, $k$ corresponding to the first SHT pair to make an $H_0$ determination is returned.
+
+ 
+
+The decision rules defined by \eqref{eq:sht_0k}, \eqref{eq:sht_1k} and \eqref{eq:decoding definition} map to the  decoding regions Def: \ref{def:general_code} as :
+ \begin{subequations}
+ \begin{align}
+\nonumber\mathcal{I}_{n_l,k}\hspace{-.3em}&= \hspace{-.3em}\bigg\{y^{n_l}: \left( \tau^0_{0,k}\leq n_l\right)\cap
+    \\&\hspace{.3em}\quad\left( \tau^0_{0,k}<(\min_{m\in\mathcal{K}^j\backslash k}\tau^0_{0,m})\right)\cap\left(\tau^0_{0,k}<(\max_{m\in\mathcal{K}^j}\tau^1_{1,m})\right)\bigg\}, \\\nonumber\mathcal{O}_{n_l} &= \bigg\{y^{n_l}: \left( (\max_{m\in\mathcal{K}^j} \tau^1_{1,m})\leq n_l\right)\cap
+    \\&\quad\quad\quad\left( (\max_{m\in\mathcal{K}^j} \tau^1_{1,m})<( \min_{m\in\mathcal{K}^j} \tau^0_{0,m})\right)\bigg\},   
+    \\\mathcal{C}_{n_l} &=\left\{\mathcal{O}_{n_l}\cup\left(\underset{k\in{\mathcal{K}}}{\bigcup}\mathcal{I}_{n_l,k}\right)\right\}^C
+\end{align}
+\label{eq:decodingRegionsAssoc}
+\end{subequations}
+
+\ifdefined\DEBUGA
+\begin{figure*}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+
+\centering
+\begin{tikzpicture}[thick]
+\node[inner sep=0pt] (i_10) at (-1.5,0)
+{\includegraphics[width=.6\textwidth]{images/new/globecomm_i2.png}};
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (-5.28,-3.4) --  (-3.2,-3.4);
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (-3.2,-3.4) --  (0.4,-3.4);
+    \draw [decorate,
+    decoration = {calligraphic brace,mirror}] (0.4,-3.4) --  (2.53,-3.4);     
+    \node at(1.2,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{I}^j_{2,k}$};
+    \node at(-1.7,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{C}^j_{2,k }$};
+    \node at(-4.4,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{O}^j_{2,k}$};
+    \node at(.42,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
+    \node at(-2.97,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
+    \node at(-2.97,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
+    \node at(.42,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
+    \node at(-2.72,2.55) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
+    \node at(-2.72,-.78) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
+    \node at(-1.72,2.55 ) [right,fill=white,opacity=100,text opacity=1] {$\mathsf{i}^{\tau}$};
+    \node at(-1.72,-.78) [right,fill=white,opacity=100,text opacity=1] {$\bar{\mathsf{i}}^{\tau}$};
+\end{tikzpicture}
+%}
+\label{fig:achievableSchemeProof}
+%\end{figure}
+
+\raggedright
+\pss{Regions and threshold examples after the second channel use}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+hypothesis&$\mathsf{i}^{n_l}_{y,k}$&$\delta_{0,k}$&$\delta_{1,k}$&Halt&$\epsilon_1$&$\epsilon_2$&$\tau_{0,k}$&$\tau_{1,k}$&$\tau_{0,k}^0$&$\tau_{1,k}^1$\\
+\hline
+$H_0$& $\mathcal{O}^j_{2.k}$ & 1 & 1 & Y* & Y&&n&2&$\infty$&2 \\ \hline
+$H_1$& $\mathcal{O}^j_{2,k}$ & 1 & 1 & Y* & &&n&2&$\infty$&2 \\ \hline
+$H_0$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n&$\infty$&$\infty$ \\ \hline
+$H_1$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n& $\infty$&$\infty$ \\ \hline
+$H_0$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y& &&2&n&2&$\infty$ \\ \hline
+$H_1$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y & &Y&2&n&2&$\infty$ \\ \hline
+\end{tabular}
+\caption*{\pss{Table for SHT Pair j at channel use 2}}
+\label{table:example}
+\end{table}
+\pss{
+In the above table we map out exactly what decisions are made by $SHT_{0,k}$ and $SHT_{1,k}$  under each hypothesis and possible $y$ realizations. $Y^*$ indicates that $SHT_k$ has halted its decoding, but decoding will continue if another $SHT$ has not halted. }
+\end{tcolorbox}
+ \end{figure*} 
+ \fi
+\subsubsection{Expected Stopping Time}
+
+The expected stopping time of this code is
+\begin{align}
+\bar{n}&\triangleq \mathbb{E}[\tau^*]
+\end{align}
+
+Let $\mathcal{A}^{k,l}$ be the set of all events in which the pair $\text{SHT}_k$ determines $H_0$ by decoding point ${n_l}$ (independent of all other SHT determinations), and let $\mathcal{B}^{k,{n_l}}$ be the set of all events in which $\text{SHT}_k$ has determined $H_1$ by decoding point ${n_l}$.
+\begin{subequations}    
+\begin{align}
+\mathcal{A}^{k,{n_l}} &\triangleq \{y^{n_l}:\tau_{0,k}^0\leq n_l\}
+\\\mathcal{B}^{k,{n_l}} &\triangleq \{y^{n_l}:\tau_{1,k}^1\leq n_l\}
+\end{align}
+\end{subequations}
+
+Define $\mathcal{A}^{n_l}$ as the set of events where the receiver (consisting of all $K$ SHT pairs) has halted by channel use ${n_l}$ because  any SHT pair has determined $H_0$. Define $\mathcal{B}^{n_l}$ as the set of events where the receiver has halted by decoding point ${n_l}$ because all SHT pairs have determined $H_1$.
+
+
+
+\begin{subequations}
+\begin{align}
+\mathcal{A}^{{n_l}} &\triangleq \bigcup_{k\in\mathcal{K}^j}\mathcal{A}^{k,{n_l}}
+\label{eq:haltA},
+\\\mathcal{B}^{{n_l}} &\triangleq \bigcap_{k\in\mathcal{K}^j}\mathcal{B}^{k,{n_l}}
+\label{eq:haltB}
+\end{align}    
+\end{subequations}
+
+The event that the receiver has halted by channel use ${n_l}$, $\mathcal{H}^{n_l}$,  is then either $\mathcal{A}^{n_l}$ or $\mathcal{B}^{n_l}$
+\begin{align}
+\mathcal{H}^{n_l} \triangleq \mathcal{A}^{n_l} \cup \mathcal{B}^{n_l} 
+\end{align}
+\label{eq:smallerSet}
+
+Via De Morgan's law the set of events where decoding continues at decoding point $n_l$ is then
+\begin{align}
+(\mathcal{H}^{n_l})^C = (\mathcal{A}^{n_l})^C \cap (\mathcal{B}^{n_l})^C 
+\label{eq:haltComplement}
+\end{align}
+%\pss{
+%or applying Demorgans law to %~\eqref{eq:smallerSet}
+%\begin{align}
+%(\mathcal{H}^l)^C\bigcup_{m=1}^{l-1}(\mathcal{H}^{m})=(\mathcal{A}^l)^C \cap (\mathcal{B}^l)^C \bigcup_{m=1}^{l-1}(\mathcal{A}^m\cup\mathcal{B}^m)
+%\end{align}
+%}
+%\pss{
+%\noindent This is larger as the complement contains events that we don't really care about. IE we did not halt at $l$ as we have already halted at $l-1$, a better refined set to consider is "didn't halt at l and didn't halt at any previous opportunity" This is the set that fully describes the behavior of our decoding.
+% }
+Applying De Morgan's law to \eqref{eq:haltA} and \eqref{eq:haltB}
+\begin{subequations}
+\begin{align}
+(\mathcal{A}^l)^C&=\bigcap_{k\in\mathcal{K}^j}(\mathcal{\tau}^0_{0,k}>n_l)
+\label{eq:AComplement}
+\\(\mathcal{B}^l)^C&=\bigcup_{k\in\mathcal{K}^j}(\mathcal{\tau}^1_{1,k}>n_l)
+\label{eq:BComplement}
+\end{align}
+\end{subequations}
+
+The expected decoding time is the sum of the number of channel uses to the first valid decoding point plus the product of the number of channel uses to each of the next decoding points times the probability that the decoder must continue to that point.
+\begin{subequations}
+\begin{align}
+\bar{n}%&=n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\mathbb{E}_W[Q_kW^{n_l}
+%(\mathcal{C}_{n_l}^{j})]
+&= n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\bigcap_{m=1}^{l}(\mathcal{H}^{m})^C\right]
+\label{eq:nbarValueRefined}
+\end{align}
+\end{subequations}
+As the intersection will always be smaller than its components: \begin{align}
+\bar{n}\leq n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[(\mathcal{H}^l)^C\right]
+\label{eq:nbarValue}
+\end{align}
+Combining ~\eqref{eq:haltComplement},~\eqref{eq:BComplement},~\eqref{eq:AComplement}, and~\eqref{eq:nbarValue}
+{\small
+\begin{align}
+\nonumber&\bar{n}\leq n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\times
+\\&\quad\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\cap\left( \bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l)\right)\right]
+\end{align}
+}
+Partition into terms consisting of $W\in\mathcal{K}^j$ and $W\notin\mathcal{K}^j$.  
+
+\begin{align}
+\nonumber\bar{n}&\leq n_1
+\\\nonumber&\hspace{-2em}+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\bigcap \left(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l)\right)\big| W\in\mathcal{K}^j\right]\Pr[W\in\mathcal{K}^j]
+\\&\hspace{-2em}+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\bigcap \left(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l)\right)\big| W\notin\mathcal{K}^j\right]\Pr[W\notin\mathcal{K}^j]
+\label{eq:nbarSeperated}
+\end{align}
+
+Conditioned on $W\in\mathcal{K}^j$, $\Pr\left[\underset{k\in\mathcal{K}^j}{\bigcup}(\tau^1_{1,k}> n_l)\right]$ will almost certainly be  larger than 
+
+\noindent$\Pr\left[\underset{k\in\mathcal{K}^j}{\bigcap}(\tau^0_{0,k}> n_l)\right]$ and vice-versa if conditioned on $W\notin\mathcal{K}^j$.  This intuition guides a simplification of the intersections in the bound in~\eqref{eq:nbarSeperated}:
+
+\ifdefined\COMMENTA
+\begin{figure*} 
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+Here we see if we can do better via maintaining the intersection.
+\begin{subequations}
+\begin{align}
+\bar{n}&=n_1+ \sum_{l_1=1}^{L-1}(n_{l_1+1}-n_{l_1})\mathbb{E}_k[Q_kW^{n_{l_1}}
+(\mathcal{C}_{n_{l_1}})]
+\\&= n_1+ \sum_{l_1=1}^{L-1}(n_{l_1+1}-n_{l_1})\Pr\left[\bigcap_{l_2=1}^{l_1}(\mathcal{H}^{m})^C\right]
+\label{eq:nbarValueRefined2}
+\end{align}
+\end{subequations}
+
+Maintaining the intersection in the bound results in 
+
+{\small
+\begin{align}
+\nonumber&\bar{n}= n_1 + \sum_{l_1=1}^{L-1}(n_{l_1+1}-n_{l_1})\Pr\Bigg[\bigcap_{l_2=1}^{l_1}\left(
+\bigcap_{k\in\mathcal{K}^j}\left(\tau^0_{0,k} > n_{l_2}\right) \bigcap \left(\bigcup_{k\in\mathcal{K}^j}\left(\tau^1_{1,k}> n_{l_2}\right)\right)\right)
+\Bigg]
+\end{align}
+}
+
+\pss{
+\tiny{
+\begin{align}
+\bar{n}\leq n_1+
+\nonumber\sum_{l_1=1}^{L-1}(n_{{l_1}+1}-n_{l_1})\Bigg(&\Pr\Bigg[\bigcap_{l_2=1}^{l_1}\left(\bigcap_{k\in\mathcal{K}^j}\left(\tau^0_{0,k} > n_{l_2}\right)\bigcap \left(\bigcup_{k\in\mathcal{K}^j}\left(\tau^1_{1,k}> n_{l_2}\right)\right)\right)\bigg|W\in\mathcal{K}^j\Bigg]Pr[W\in\mathcal{K}^j]
+\\+&\Pr\Bigg[\bigcap_{l_2=1}^{l_1}\left(\bigcap_{k\in\mathcal{K}^j}\left(\tau^0_{0,k} > n_{l_2}\right)\bigcap \left(\bigcup_{k\in\mathcal{K}^j}\left(\tau^1_{1,k}> n_{l_2}\right)\right)\right)
+|W\notin\mathcal{K}^j\Bigg]Pr[W\notin\mathcal{K}^j]\Bigg)
+\end{align}
+}
+}
+if $W\in\mathcal{K}^j$ we conjecture it is more likely for the positive identifications to come true and vice versa so we remove the anticipated larger values via the properties of the intersection. 
+\pss{
+\tiny{
+\begin{align}
+\bar{n}= n_1+
+\nonumber\sum_{l_1=1}^{L-1}(n_{{l_1}+1}-n_{l_1})\Bigg(&\Pr\Bigg[\bigcap_{l_2=1}^{l_1}\left(\bigcap_{k\in\mathcal{K}^j}\left(\tau^0_{0,k} > n_{l_2}\right)\right)\bigg|W\in\mathcal{K}^j\Bigg]Pr[W\in\mathcal{K}^j]
+\\+&\Pr\Bigg[\bigcap_{l_2=1}^{l_1} \left(\bigcup_{k\in\mathcal{K}^j}\left(\tau^1_{1,k}> n_{l_2}\right)\right)
+|W\notin\mathcal{K}^j\Bigg]Pr[W\notin\mathcal{K}^j]\Bigg)
+\end{align}
+}
+}
+
+%}
+%\pss{
+%\begin{align}
+%\bar{n}\leq n_1+
+%\nonumber\sum_{l=1}^{L-1}(n_{l+1}-n_l)\Bigg(&\Pr\Bigg[\bigcap_{j\in\mathcal{K}^a}\left(\tau^0_{0,j} > n_l\right)
+%\bigcap_{k=1}^{l-1}\left(
+%\bigcap_{j\in\mathcal{K}^a}\left(\tau^0_{0,j} > n_k\right) \right)
+%|W\in\mathcal{K}^a\Bigg]Pr[W\in\mathcal{K}^a]
+%\\+&\Pr\Bigg[ \left(\bigcup_{j\in\mathcal{K}^a}\left(\tau^1_{1,j}> n_l\right)\right)
+%\bigcap_{k=1}^{l-1}\left( \left(\bigcup_{j\in\mathcal{K}^a}\left(\tau^1_{1,j}> n_k\right)\right)\right)
+%|W\notin\mathcal{K}^a\Bigg]Pr[W\notin\mathcal{K}^a]
+%\end{align}
+%Continuing the same analysis as above
+\begin{align}
+\bar{n}\leq&\nonumber n_1+ \sum_{l_1=1}^{L-1}(n_{l_1+1}-n_{l_1})\Pr\left[\bigcap_{l_2=1}^l(\tau^0_{0,1} > n_{l_2})|W=1\right]\frac{K}{M}
+\\&\quad+\sum_{l_1=1}^{L-1}(n_{l_1+1}-n_{l_1}) \Pr\left[\bigcap_{l_2=1}^l(\tau^1_{1,1}> n_{l_2})\big| W=2\right]\frac{K(M-K)}{M}
+\end{align}
+%which when converting to our threshold rules yields the same as before.  (Our threshold rules coupled with the halting criteria mean we must consider prior halting)
+%\begin{align}
+%\nonumber&=n_1+\sum_{l=1}^{L-1}(n_{l+1}-n_{l})\Pr\left[\cap_{m=1}^{n_l}\mathsf{i}_{1,1}^{n_m}<\lambda_0\right]\frac{K}{M}
+%+\sum_{l=1}^{L-1}(n_{l+1}-n_{l})\Pr\left[\cap_{m=1}^{n_l}\mathsf{i}_{1.2}^{n_m}>\lambda_1\right]\frac{K(M-K)}{M}
+%\end{align}
+%Instead of using intersection rules lets see if we can do something more clever.
+%Consider the case of L=3 
+%\begin{align}
+%\nonumber&=n_1+(n_2-n_1)\Pr\left[\mathsf{i}_{1,1}^{n_1}<\lambda_0 \right]\frac{K}{M}+(n_3-n_2)\Pr\left[\mathsf{i}_{1,1}^{n_2}<\lambda_0 \cap\mathsf{i}_{1,1}^{n_1}<\lambda_0 \right]\frac{K}{M}+
+%\\&\quad\quad(n_2-n_1)\Pr\left[\mathsf{i}_{1,2}^{n_1}>\lambda_1 \right]\frac{K(M-K)}{M}+(n_3-n_2)\Pr\left[\mathsf{i}_{1,2}^{n_2}>\lambda_1 \cap\mathsf{i}_{1,2}^{n_1}>\lambda_1 \right]\frac{K(M-K)}{M}
+%+\sum_{l=1}^{L-1}n_l\Pr\left[\cap_{m=1}^{n_l}\mathsf{i}_{1.2}^{n_m}>\lambda_1\right]\frac{K(M-K)}{M}
+%\end{align}
+%The challenge is in writing the joint probabilities.  It would be possible to consider the information densities to approaching  correlated Gaussians much like the broadcast paper. 
+%It is possible because a conditional probability ie $\Pr\left[\mathsf{i}_{1,1}^{n_2}<\lambda_0 |\mathsf{i}_{1,1}^{n_1}<\lambda_0 \right]$
+%is a fragment of the information density with a mean offset of all $\mathsf{i}_{1,1}^{n_1}<\lambda_0$, but very challenging and more importantly it would be small blocklengths and thus inaccurate for a normal approximation.
+%}
+\end{tcolorbox}
+\end{figure*}
+\fi
+
+\begin{align}
+&\bar{n}\nonumber\leq n_1
+\\&\nonumber+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\big| W\in\mathcal{K}^j\right]
+\\\nonumber&\qquad\times\Pr[W\in\mathcal{K}^j]
+\\\nonumber&+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\left(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l)    \right)\big| W\notin\mathcal{K}^j\right]
+\\&\qquad\times\Pr[W\notin\mathcal{K}^j]
+\label{eq:nbarStep2}
+\end{align}
+
+As the code construction is symmetric for $m\in\mathcal{M}^j$:
+\begin{align}
+\nonumber\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\big| W\in\mathcal{K}^j\right]=
+\\
+\Pr\left[\left(\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\right)\big| W=m\right]
+\end{align}
+Which we use to partition the  the first term in~\eqref{eq:nbarStep2} yielding:
+{
+\begin{align}
+&\bar{n}\nonumber\leq n_1
+\\&\qquad\nonumber+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\times
+\\&\nonumber\sum_{m\in\mathcal{K}^j}\left(\Pr\left[\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l) \big| W=m)\right]\Pr[W=m]\right)
+\\&+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\times\\&\quad\Pr\left[\left(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l) \right)\big| W\notin\mathcal{K}^j\right]\Pr[W\notin\mathcal{K}^j]
+\label{eq:nBarStep3}
+\end{align}
+}
+Analyzing the first term in~\eqref{eq:nBarStep3}, we first reduce the intersection based on the fact that conditioned on $W=m$, $\Pr[\tau^0_{0,m}>n_l]$ will almost certainly be smaller than $\Pr[\tau^0_{0,k}>n_l],k\in \mathcal{K}^j\backslash m$.
+
+\begin{align}
+\nonumber\sum_{m\in\mathcal{K}^j}&\left(\Pr\left[\bigcap_{k\in\mathcal{K}^j}(\tau^0_{0,k} > n_l)\big| W=m)\right]\Pr[W=m]\right)
+\\&\leq \sum_{m\in\mathcal{K}^j}\left(\Pr\left[\tau^0_{0,m} > n_l\big| W=m)\right]\Pr[W=m]\right)
+\end{align}
+and WLOG assume $m=1, 1\in\mathcal{K}^j$ and average over the code construction: 
+\begin{align}
+\nonumber\mathbb{E}\bigg[\sum_{m\in\mathcal{K}^a}&\left(\Pr\left[\tau^0_{0,m} > n_l\big| W=m)\right]\Pr[W=m]\right)\bigg]
+\\&=\mathbb{E}\bigg[\Pr\left[\tau^0_{0,1} > n_l|W=1\right]\frac{K}{M}\bigg] 
+\label{eq:term1}
+\end{align}
+%And we know
+%\begin{align}
+%\Pr[W\in\mathcal{K}^a] &= \frac{K}{M}
+%\\\Pr[W\notin\mathcal{K}^a] &= \frac{M-K}{M}
+%\end{align}
+
+
+%\begin{align}
+%\bar{n}&\nonumber\leq n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[(\tau^0_{0,1} > n_l)|W=1\right]\frac{K}{M}
+%\\&+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr[ (\bigcup_{j\in\mathcal{K}^a}\tau^1_{1,j}> n_l)\big| W\notin\mathcal{K}^a]\frac{M-K}{M}
+%\end{align}
+Analyzing the second term in~\eqref{eq:nbarStep2}, we assume WLOG $m=2 ,2\notin\mathcal{K}^j$ and
+average over the code construction:
+\begin{align}
+\nonumber\mathbb{E}\Bigg[\Pr&\Big[(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}>n_l)\big|W\notin\mathcal{K}^j\Big]\Bigg]=
+\\&\mathbb{E}\Bigg[\Pr\bigg[(\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l))\big| W=2\bigg]\Bigg]
+\end{align}
+Using the union bound and WLOG considering only the $\text{SHT}_1$ pair
+\begin{align}
+\nonumber\mathbb{E}\Bigg[\Pr\bigg[\bigcup_{k\in\mathcal{K}^j}(\tau^1_{1,k}> n_l)\big|& W=2\bigg]\Bigg]
+\\&\hspace{-4em}\leq \min\left(1,K\mathbb{E}\bigg[\Pr[ (\tau^1_{1,1}> n_l)\big| W=2]\bigg]\right)
+\label{eq:term2}
+\end{align}
+Combining \eqref{eq:term1}, \eqref{eq:term2} with \eqref{eq:nBarStep3} and noting $\Pr[W\notin\mathcal{M}^j]=\tfrac{M-K}{M}$
+\begin{align}
+\bar{n}\leq&\nonumber n_1+ \sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[(\tau^0_{0,1} > n_l)|W=1\right]\frac{K}{M}
+\\&\hspace{-3em}+\sum_{l=1}^{L-1}(n_{l+1}-n_l) \min\left(1,K\Pr[(\tau^1_{1,1}> n_l)\big| W=2]\right)\frac{(M-K)}{M}
+\end{align}
+Converting to our threshold decoders we note that $\Pr\left[(\tau^0_{0,1} > n_l)|W=1\right]$ is equal to the conditioned information density falling below $\lambda_0$ for every decoding point up to and including $n_l$ which gives:
+\begin{align}
+\Pr\left[(\tau^0_{0,1} > n_l)|W=1\right]=\Pr\left[\cap_{m=n_1}^{n_l}(\mathsf{i}^{n_m}<\lambda_0)\right]
+\end{align}
+Likewise, $\Pr[(\tau^1_{1,1}> n_l)\big| W=2]$ is equal to average information density being greater than $\lambda_1$ for every decoding point up to and including $n_l$ so that 
+\begin{align}
+    \Pr[(\tau^1_{1,1}> n_l)\big| W=2] =\Pr\left[\cap_{m=1}^{n_l}(\bar{\mathsf{i}}^{n_m}>\lambda_1)\right]\
+\end{align} 
+combining the previous two observations we find that 
+\begin{align}
+\nonumber\bar{n}&\leq n_1+\sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\cap_{m=1}^{n_l}(\mathsf{i}^{n_m}<\lambda_0)\right]\frac{K}{M}
+\\\nonumber&\quad\quad+\sum_{l=1}^{L-1}(n_{l+1}-n_l)\times
+\\&\min\left(1,K\Pr\left[\cap_{m=1}^{n_l}(\bar{\mathsf{i}}^{n_m}>\lambda_1)\right]\right)\frac{(M-K)}{M}
+\\\nonumber&\leq n_1+\sum_{l=1}^{L-1}(n_{l+1}-n_l)\Pr\left[\mathsf{i}^{n_l}<\lambda_0\right]\frac{K}{M}
+\\&\quad+\sum_{l=1}^{L-1}(n_{l+1}-n_l)\min\left(1,K\Pr\left[\hspace{.2em}\bar{\mathsf{i}}^{n_l}>\lambda_1\right]\right)\frac{(M-K)}{M}
+\label{eq:nbarbound2}
+\end{align}
+%}
+\subsubsection{Probability of Type-1 Errors}
+\ \\A Type-1 error can only occur under $H_0$, which occurs when the transmitted message $k\in\mathcal{K}$. A Type-1 error occurs when  $\exists g\in\mathcal{K}^j\backslash k:\tau^0_{0,g}\leq\tau^0_{0,k}$ or when $\tau_{0,k}^0=\infty$.  The probability of Type-1 error for message $k$ (the dependence on $j$ as given in ~\eqref{eq:epsilon1expansion}
+has been omitted for readability):
+\begin{subequations}
+\begin{align}
+\epsilon_1^k &= Q_kW^{\tau^*}\left(\left(\bigcup_{m\in\mathcal{K}\backslash k}
+\mathcal{I}_{\tau^*,m}\right)\cup\mathcal{O}_{\tau^*}\right)\Pr[W=k]
+\\\epsilon^k_1 &= \Pr\left[\left(\tau^*= \underset{m\in\mathcal{K}^j\backslash k}{\min}\tau^0_{0,m}\right)\cup(\tau_{0,k}^0=\infty) \cap W=k\right]
+\\\nonumber\epsilon^k_1 &\leq\Pr\left[\left(\tau^*= \underset{m\in\mathcal{K}^j\backslash k}{\min}\tau^0_{0,m}\right)\Big|W=k\right]\Pr[W=k] 
+\\&\quad+\Pr\left[(\tau_{0,k}^0=\infty)|W=k\right] \Pr[W=k]
+\label{eq:epsilon1_complete}
+\end{align}
+\end{subequations}
+The total probability of a Type-1 error is bounded as
+\begin{align}
+\epsilon_1 &\leq \sum_{k\in\mathcal{K}^j} \epsilon^k_1
+\end{align}
+
+%\begin{align}
+%\nonumber\epsilon^k_1 &\leq \Pr\left[\tau^*\neq\tau_{0,k}^0|W=k\right] \Pr[W=k]
+%\\&\quad+\Pr[\left(\tau^*\geq \underset{m\in\mathcal{K}^j\backslash k}{\min}\tau^0_{0,m}\right)|W=k]\Pr[W=k]
+%\end{align}
+%\begin{align}
+%\epsilon^k_1 &= \Pr\left[\tau^*!=\tau_{0,k}^0,W=k\right]
+%\\\epsilon^k_1 &= \Pr\left[\tau^*!=\tau_{0,k}^0|W=k\right] \Pr[W=k]
+%\end{align}
+%\begin{align}
+%\epsilon_1^j&\leq\Pr\left[\cup_{k\in\mathcal{K}^a\backslash j}(\tau^*=\tau_{0,k}^0)\cup \tau^0_{0,j}=\infty   |W=j\right] \Pr[W=j]
+%\end{align}
+%\pss{Separate with union bound}
+%\begin{align}
+%\epsilon_1^j&\nonumber\leq \Pr\left[ \tau^0_{0,k}=\infty  |W=k\right] \Pr[W=k]
+%\\&\quad +\Pr\left[\cup_{m\in\mathcal{K}^j\backslash k}(\tau^*=\tau_{0,m}^0)  |W=j\right] \Pr[W=j]
+%\end{align}
+WLOG we take $k=1,k\in\mathcal{M}^j$ and expand the first term in ~\eqref{eq:epsilon1_complete} using the union bound and average over the code construction:
+%\small{
+\begin{subequations}
+\begin{align}
+\nonumber\Pr\big[\big(\tau^*&= \underset{m\in\mathcal{K}^j\backslash k}{\min}\tau^0_{0,m}\big) \Big| W=k \big] %\\&=\Pr\big[\bigcup_{m\in\mathcal{K}^j\backslash 1}(\tau^*=\tau_{0,m}^0)  \big|W=1\big]
+%\\&\leq(K-1)\Pr\left[\cup_(\tau^*=\tau_{0,2}^0)  |W=1 \right]
+\\&\leq(K-1)\Pr\left[(\tau^*=\tau_{0,2}^0)  |W=1 \right]
+\\&\leq(K-1)\Pr\left[\cup_{l=1}^L\bar{\mathsf{i}}^{n_l}>\lambda_0\right]
+\label{eq:conversionToThreshold}
+\\&\leq(K-1)\sum_{l=1}^L\Pr\left[\hspace{.4em}\bar{\mathsf{i}}^{n_l}>\lambda_0\right]
+\label{eq:epsilon1_firstOne}
+\end{align}
+\end{subequations}
+%}
+In~\eqref{eq:conversionToThreshold} we make use of  the fact that the probability of $\tau^*$ being set by a SHT not matching the transmitted message is the union of the average channel output info density being greater than $\lambda_0$ at any decoding opportunity.
+
+The probability of the second term in ~\eqref{eq:epsilon1_complete} can be decomposed into two parts where we average over the code construction to obtain:
+\begin{subequations}
+\begin{align}
+\nonumber\Pr\left[(\tau_{0,k}^0=\infty)|W=k\right]&=
+\\&\hspace{-4em}\Pr\left[(\cup_{l=1}^{L-1}(\mathsf{i}^{n_l}<\lambda_1))\cup (\mathsf{i}^{n_L}<\lambda_0)\right]
+\label{eq:type1ErrorSecondPart}
+\\ & \hspace{-5.2em}\leq 
+\Pr\left[(\cup_{l=1}^{L-1}(\mathsf{i}^{n_l}<\lambda_1))\right]]+\Pr\left[ (\mathsf{i}^{n_L}<\lambda_0)\right]
+\label{eq:epsilon1_lastTwo}
+\end{align}
+\end{subequations}
+
+As the probability is determined by the $k$-th SHT pair and is conditioned on $k$ being transmitted, the conditioned info density is the random variable determining the behavior.
+
+The first term in~\eqref{eq:type1ErrorSecondPart} comprise the events corresponding to $\text{SHT}_{1,k}$ determining $H_1$ prior to the last decoding point and the second is the event where $\text{SHT}_{0,k}$ has determined $H_1$ at the last decoding opportunity. 
+
+\begin{subequations}
+Combining \eqref{eq:epsilon1_complete} with \eqref{eq:epsilon1_firstOne} and \eqref{eq:epsilon1_lastTwo}
+\begin{align}
+\nonumber\epsilon_1^k&\leq \frac{1}{M}\sum_{l=1}^L\Pr\left[\bar{\mathsf{i}}^{n_l}>\lambda_0\right]
+\\&\quad+\frac{1}{M}\sum_{l=1}^{L-1}\Pr\left[\mathsf{i}^{n_l}<\lambda_1 \right]
++\frac{1}{M}\Pr\left[\mathsf{i}^{n_L}<\lambda_0 \right]
+%\\\epsilon_1 &\leq \sum_{k\in\mathcal{K}^j} \epsilon^k_1
+\end{align}
+\end{subequations}
+
+\subsubsection{Probability of Type-2 Error} 
+
+
+A Type-2 Error can only occur under  $H_1$. It occurs when some SHT-$k$ pair, $k\in\mathcal{K}^j$ declares $H_0$ for some $W=g,g\notin\mathcal{K}^j$. The probability of the decoder outputing message $k$ while making a Type-2 error  is given as: 
+\begin{subequations}
+\begin{align}
+\epsilon^k_2 &= \sum_{g\notin\mathcal{K}^j}Q_gW^{{\tau^*}}(\mathcal{I}_{\tau^*,k})\Pr[W=g]
+%\\&= \sum_{g\notin\mathcal{K}^j} \Pr[(\tau^*=\tau_{0,k}^0) \bigcap_{m\in\mathcal{K}^j}(\tau^*<\tau_{1,m}^1)\\&\quad\bigcap_{m\in\mathcal{K}^j\setminus k}(\tau^0_{0,l}<\tau_{0,m}^0) |W=g]\Pr[W=g]
+\\&\leq \sum_{g\notin\mathcal{K}^j} \Pr[(\tau^*=\tau_{0,k}^0) |W=g]\Pr[W=g]
+\label{eq:epsilon2k}
+\end{align}
+\end{subequations}
+
+
+The total probability of Type-2 Error is bounded as
+\begin{align}
+\epsilon_2 &\leq \sum_{k\in\mathcal{K}^j} \epsilon^k_2
+\end{align}
+WLOG we consider $k=1,1\in\mathcal{M}^j,2\notin\mathcal{M}^j$ and average over the code construction. As the behavior is determined by the SHT for messages not corresponding to the transmitted message, the average channel output of the info density it the random variable of interest.
+
+\begin{subequations}
+\begin{align}
+%\\\nonumber&\pss{\text{WLOG take $j=1$ and $k=2$. (IE testing for 1 when}}
+%\\\nonumber&\pss{\text{2 was transmitted) and}} 
+\epsilon_2^k&=\frac{M-K}{M}\mathbb{E}\left[\Pr[\tau^*=\tau_{0,1}^0|W=2]\right] 
+\\&=\frac{M-K}{M}\Pr\left[\cup_{l=1}^L\bar{\mathsf{i}}^{n_l}>\lambda_0 \right]
+\\&\leq\frac{M-K}{M}\sum_{l=1}^L\Pr\left[\bar{\mathsf{i}}^{n_l}>\lambda_0 \right]
+\end{align}    
+\end{subequations}
