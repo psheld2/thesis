@@ -2,10 +2,6 @@
 %Table
 %Colors
 %Check heading structure of tableofcontents and listoffigures etc.
-
-
-
-
 \documentclass[12pt,reqno,oneside]{amsbook}
 
 \newcommand{\NOTOVERLEAF}{}
@@ -31,7 +27,7 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 
-\usepackage{acro}
+\usepackage{acronym}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[chapter]
@@ -42,12 +38,10 @@
 % Hyperref
 \usepackage[pdfusetitle,hidelinks]{hyperref}
 
-\DeclareAcronym{DoR}{short='DoR',long='Decode or Reject'}
-\DeclareAcronym{AWGN}{short='AWGN',long='Additive White Gaussian Noise'}
 \begin{document}
 
 % Title metadata.  Make changes here to fit your needs
-\newcommand{\thetitle}{A Sample Thesis in Mathematics}
+\newcommand{\thetitle}{A Thesis on Early Decoding}
 
 %Edit the following
 \newcommand{\institution}{University of Illinois Chicago} 
@@ -119,14 +113,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 \listoffigures
 \listoftables
 
-%\chapter*{List of Abbreviations}
-%\begin{acronym}
-%	\acro{DoR}{Decode or reject}
-%	\acro{AWGN}{Additive White Gaussian Noise}
-%\end{acronym}
-\printacronyms
+\chapter*{List of Abbreviations}
+\begin{acronym}
+\acro{DoR}{Decode or reject}
+\end{acronym}
+
 \chapter{Summary}
-\ac{DoR} and \ac{AWGN}
 dui. Aenean ut eros et nisl sagittis vestibulum.
 
 
@@ -181,7 +173,7 @@ A group is a set $G$ with a binary operation satisfying closure, associativity, 
 \end{definition}
 
 \begin{theorem}
-	\ac{AWGN}Every finite subgroup of the multiplicative group of a field is cyclic.
+	Every finite subgroup of the multiplicative group of a field is cyclic.
 \end{theorem}
 
 \begin{proof}
@@ -190,7 +182,7 @@ This is a standard result from algebra.
 
 \chapter{Early Decoding}
 \section{Introduction}
-\subsection{\ac{DoR} Decoding}
+\subsection{DoR Decoding}
 \ifdefined\NOTOVERLEAF
 \begin{figure}[h]
 \centering
