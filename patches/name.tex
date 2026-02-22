@@ -1,0 +1,21 @@
+\documentclass{report}
+
+\usepackage{acro}
+
+\DeclareAcronym{cms}{short= C.M.S. , long=Content Management System}
+\DeclareAcronym{baas}{short= B. as S. , long=Backend As A Service}
+\DeclareAcronym{api}{short=API , long=Application Programming Interface}
+
+\begin{document}
+    
+    \begin{tabular}{ll}
+        first time  & \ac{cms} \\
+        second time & \ac{cms} \\
+        long    & \acl{cms} \\
+        short   & \acs{cms} \\
+        full    & \acf{cms}
+    \end{tabular}
+        
+\printacronyms[display=all, name=Liste des abréviations] %Printing the full  list
+    
+\end{document}
