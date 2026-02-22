@@ -31,7 +31,7 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 
-\usepackage[printonlyused,withpage]{acronym}
+\usepackage{acro}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[chapter]
@@ -42,6 +42,8 @@
 % Hyperref
 \usepackage[pdfusetitle,hidelinks]{hyperref}
 
+\DeclareAcronym{DoR}{short='DoR',long='Decode or Reject'}
+\DeclareAcronym{AWGN}{short='AWGN',long='Additive White Gaussian Noise'}
 \begin{document}
 
 % Title metadata.  Make changes here to fit your needs
@@ -55,7 +57,6 @@
 \newcommand{\theauthor}{Paul Sheldon}
 \newcommand{\priordegrees}{BS, University of Wisconsin, 2005\\ Another Prior degree, if Appropriate}
 \newcommand{\graduationyear}{2026}
-
 % Leave the following for metadata
 \author{\theauthor}
 \title{\thetitle}
@@ -113,23 +114,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 \chapter*{Preface}
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
-
-Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
 
 \tableofcontents
 \listoffigures
 \listoftables
 
-\chapter*{List of Abbreviations}
-\begin{acronym}
-\acro{DoR}{Decode or reject}
-\end{acronym}
-
+%\chapter*{List of Abbreviations}
+%\begin{acronym}
+%	\acro{DoR}{Decode or reject}
+%	\acro{AWGN}{Additive White Gaussian Noise}
+%\end{acronym}
+\printacronyms
 \chapter{Summary}
-\ac{DoR}
+\ac{DoR} and \ac{AWGN}
 dui. Aenean ut eros et nisl sagittis vestibulum.
 
 
@@ -184,7 +181,7 @@ A group is a set $G$ with a binary operation satisfying closure, associativity, 
 \end{definition}
 
 \begin{theorem}
-Every finite subgroup of the multiplicative group of a field is cyclic.
+	\ac{AWGN}Every finite subgroup of the multiplicative group of a field is cyclic.
 \end{theorem}
 
 \begin{proof}
@@ -250,7 +247,7 @@ This is a standard result from algebra.
 \centering
 \includegraphics[width=\textwidth]{tikz_plots/PerformanceResults_DorToTier-1.png}
 \label{fig:LambdaResponses}
-\caption{$Achievable Results$}
+\caption{Achievable Results}
 \end{figure}
 \fi
 
