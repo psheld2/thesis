@@ -99,19 +99,6 @@ Above for readability, and in the remainder of this section, the dependence on $
 \label{eq:sht_1k}
 \end{align}
 \end{subequations}
-%\begin{subequations}
-%\begin{align}
-%\text{SHT}_{1,k}:\quad\tau_{1,k} &= \inf\{l\in \mathcal{L} :\mathsf{i}^{n_l}_{y,k}< \lambda_1\}
-%\\\tilde{\tau}_{1,k} &= \min(\tau_{1,k},n)
-%\label{eq:tildetauHT1}
-%\\\delta_{1,k}&=
-%\begin{cases}
-%0 \quad \text{if}\quad %\mathsf{i}^{\tilde{\tau}_{1,k}}_{y,k}
-%\geq \lambda_1\\
-%1 \quad \text{if}\quad  %\mathsf{i}^{\tilde{\tau}_{1,k}}_{y,k}< %\lambda_1
-%\end{cases}
-%\end{align}
-%\end{subequations}
 
 For each potential decoding point, the decoder simultaneously runs the $K$ pairs of hypothesis tests until 
  either $H_0$ is declared by \textit{any} $\text{SHT}_{0,k}$ or $H_1$ is declared by \textit{all} $\text{SHT}_{1,k}$s.  
@@ -162,59 +149,59 @@ The decision rules defined by \eqref{eq:sht_0k}, \eqref{eq:sht_1k} and \eqref{eq
 \label{eq:decodingRegionsAssoc}
 \end{subequations}
 
-\ifdefined\DEBUGA
-\begin{figure*}
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
+%\ifdefined\DEBUGA
+%\begin{figure*}
+%\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black]
 
-\centering
-\begin{tikzpicture}[thick]
-\node[inner sep=0pt] (i_10) at (-1.5,0)
-{\includegraphics[width=.6\textwidth]{images/new/globecomm_i2.png}};
-    \draw [decorate,
-    decoration = {calligraphic brace,mirror}] (-5.28,-3.4) --  (-3.2,-3.4);
-    \draw [decorate,
-    decoration = {calligraphic brace,mirror}] (-3.2,-3.4) --  (0.4,-3.4);
-    \draw [decorate,
-    decoration = {calligraphic brace,mirror}] (0.4,-3.4) --  (2.53,-3.4);     
-    \node at(1.2,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{I}^j_{2,k}$};
-    \node at(-1.7,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{C}^j_{2,k }$};
-    \node at(-4.4,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{O}^j_{2,k}$};
-    \node at(.42,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
-    \node at(-2.97,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
-    \node at(-2.97,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
-    \node at(.42,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
-    \node at(-2.72,2.55) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
-    \node at(-2.72,-.78) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
-    \node at(-1.72,2.55 ) [right,fill=white,opacity=100,text opacity=1] {$\mathsf{i}^{\tau}$};
-    \node at(-1.72,-.78) [right,fill=white,opacity=100,text opacity=1] {$\bar{\mathsf{i}}^{\tau}$};
-\end{tikzpicture}
+%\centering
+%\begin{tikzpicture}[thick]
+%\node[inner sep=0pt] (i_10) at (-1.5,0)
+%{\includegraphics[width=.6\textwidth]%{images/new/globecomm_i2.png}};
+%    \draw [decorate,
+%    decoration = {calligraphic brace,mirror}] (-5.28,-3.4) --  (-3.2,-3.4);
+%    \draw [decorate,
+%    decoration = {calligraphic brace,mirror}] (-3.2,-3.4) --  (0.4,-3.4);
+%    \draw [decorate,
+%    decoration = {calligraphic brace,mirror}] (0.4,-3.4) --  (2.53,-3.4);     
+%    \node at(1.2,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{I}^j_{2,k}$};
+%    \node at(-1.7,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{C}^j_{2,k }$};
+%    \node at(-4.4,-3.8) [right,fill=green,opacity=0,text opacity=1] {$\mathcal{O}^j_{2,k}$};
+%    \node at(.42,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
+%    \node at(-2.97,-1.5) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
+%    \node at(-2.97,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_1$};
+%    \node at(.42,1.85) [right,fill=white,opacity=100,text opacity=1] {$\lambda_0$};
+%    \node at(-2.72,2.55) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
+%    \node at(-2.72,-.78) [right,fill=white,opacity=100,text opacity=.0] {00000000000000};
+%    \node at(-1.72,2.55 ) [right,fill=white,opacity=100,text opacity=1] {$\mathsf{i}^{\tau}$};
+%    \node at(-1.72,-.78) [right,fill=white,opacity=100,text opacity=1] {$\bar{\mathsf{i}}^{\tau}$};
+%\end{tikzpicture}
 %}
-\label{fig:achievableSchemeProof}
+%\label{fig:achievableSchemeProof}
 %\end{figure}
 
-\raggedright
-\pss{Regions and threshold examples after the second channel use}
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-hypothesis&$\mathsf{i}^{n_l}_{y,k}$&$\delta_{0,k}$&$\delta_{1,k}$&Halt&$\epsilon_1$&$\epsilon_2$&$\tau_{0,k}$&$\tau_{1,k}$&$\tau_{0,k}^0$&$\tau_{1,k}^1$\\
-\hline
-$H_0$& $\mathcal{O}^j_{2.k}$ & 1 & 1 & Y* & Y&&n&2&$\infty$&2 \\ \hline
-$H_1$& $\mathcal{O}^j_{2,k}$ & 1 & 1 & Y* & &&n&2&$\infty$&2 \\ \hline
-$H_0$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n&$\infty$&$\infty$ \\ \hline
-$H_1$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n& $\infty$&$\infty$ \\ \hline
-$H_0$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y& &&2&n&2&$\infty$ \\ \hline
-$H_1$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y & &Y&2&n&2&$\infty$ \\ \hline
-\end{tabular}
-\caption*{\pss{Table for SHT Pair j at channel use 2}}
-\label{table:example}
-\end{table}
-\pss{
-In the above table we map out exactly what decisions are made by $SHT_{0,k}$ and $SHT_{1,k}$  under each hypothesis and possible $y$ realizations. $Y^*$ indicates that $SHT_k$ has halted its decoding, but decoding will continue if another $SHT$ has not halted. }
-\end{tcolorbox}
- \end{figure*} 
- \fi
+%\raggedright
+%\pss{Regions and threshold examples after the second channel use}
+%\begin{table}[H]
+%\centering
+%\begin{tabular}%{|c|c|c|c|c|c|c|c|c|c|c|}
+%\hline
+%hypothesis&$\mathsf{i}^{n_l}_{y,k}$&$\delta_{0,k}$&$\delta_{1,k}$&Halt&$\epsilon_1$&$\epsilon_2$&$\tau_{0,k}$&$\tau_{1,k}$&$\tau_{0,k}^0$&$\tau_{1,k}^1$\\
+%\hline
+%$H_0$& $\mathcal{O}^j_{2.k}$ & 1 & 1 & Y* & Y&&n&2&$\infty$&2 \\ \hline
+%$H_1$& $\mathcal{O}^j_{2,k}$ & 1 & 1 & Y* & &&n&2&$\infty$&2 \\ \hline
+%$H_0$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n&$\infty$&$\infty$ \\ \hline
+%$H_1$& $\mathcal{C}^j_{2,k}$ & 1 & 0 & & &&n&n& $\infty$&$\infty$ \\ \hline
+%$H_0$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y& &&2&n&2&$\infty$ \\ \hline
+%$H_1$& $\mathcal{I}^j_{2,k}$ & 0 & 0 & Y & &Y&2&n&2&$\infty$ \\ \hline
+%\end{tabular}
+%\caption*{\pss{Table for SHT Pair j at channel use 2}}
+%\label{table:example}
+%\end{table}
+%\pss{
+%In the above table we map out exactly what decisions are made by $SHT_{0,k}$ and $SHT_{1,k}$  under each hypothesis and possible $y$ realizations. $Y^*$ indicates that $SHT_k$ has halted its decoding, but decoding will continue if another $SHT$ has not halted. }
+%\end{tcolorbox}
+% \end{figure*} 
+% \fi
 \subsubsection{Expected Stopping Time}
 
 The expected stopping time of this code is
