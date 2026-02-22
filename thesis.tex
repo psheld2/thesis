@@ -1,10 +1,5 @@
-%Todo
-%Table
-%Colors
-%Check heading structure of tableofcontents and listoffigures etc.
 \documentclass[12pt,reqno,oneside]{amsbook}
 
-%\newcommand{\NOTOVERLEAF}{}:119
 
 \usepackage[english]{babel}  %Language needs to be specified for accessibility; currently this is not working well with latexml
 
@@ -37,6 +32,13 @@
 
 % Hyperref
 \usepackage[pdfusetitle,hidelinks]{hyperref}
+\newcommand{\Qsf}{\mathsf{Q}}
+\newcommand{\Vsf}{\mathsf{V}}
+\newcommand{\Csf}{\mathsf{C}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Mcal}{\mathcal{M}}
 
 \begin{document}
 
@@ -117,6 +119,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 \begin{acronym}
 \acro{AWGN}{Additive White Gaussian Noise}
 \acro{DoR}{Decode or reject}
+\acro{P2P}{Point to Point}
+
 \end{acronym}
 
 \chapter{Summary}
@@ -134,9 +138,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 This is the introduction chapter. We cite some classic works \cite{108245}.  
 
 
-
-We reference Theorem \ref{thm1}.
-
 \href{https://www.uic.edu}{University of Illinois Chicago}.
 
 % JPG, JPEG, PNG will work.  PNG and SVG do not work.
@@ -151,21 +152,12 @@ How to solve \eqref{eq1}
 \subsection{Open questions}
 Some questions remain open for future work.
 
-Note: I have not tested the accessibility of this table.
-\begin{table}[h]
-\centering
-\begin{tabular}{cc}
-Monkeys & Lions \\
-100 & 200
-\end{tabular}
-\caption{Example Table}
-\end{table}
 
 
 \chapter{Background}
-This chapter gives necessary background.
 
-\section{Group theory}
+\section{Notation}
+\input{notation.tex}
 \begin{definition}
 A group is a set $G$ with a binary operation satisfying closure, associativity, identity, and inverses.
 \end{definition}
@@ -223,7 +215,7 @@ This is a standard result from algebra.
 \end{figure}
 \fi
 \section{Results}
-\include{DoR_Bounds}
+\input{DoR_Bounds}
 \section{Numeric Simulations}
 \ifdefined\NOTOVERLEAF
 \begin{figure}[h]
@@ -254,8 +246,7 @@ This is a standard result from algebra.
 
 
 \section{Proofs}
-
-\include{DoR_Proof}
+\input{DoR_Proof}
 
 \chapter{Vitae}
 

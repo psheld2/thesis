@@ -1,0 +1,88 @@
+In this work random variables will be denoted with capital letters, while their realizations will be denoted with lower case letters. We denote sequences of random variables using superscripts, e.g. $X^{n}\triangleq(X_1,X_2,\dots,X_n)$. We make use of the term fragment $X^{i}$ of $X^{n}$ for $1 \leq i\leq n$ to denote $X^{i}\triangleq(X_1,X_2,\dots,X_i)$. We will denote the Gaussian distribution in variable $y$ with mean $\mu$ and variance $\sigma^2$ as $\mathcal{N}(y;\mu,\sigma^2)$, having with probability density function (pdf):
+\begin{align}
+\mathcal{N}\left(x; \mu, \sigma^2 \right) 
+  = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
+\label{eq:def gaussianpfd}
+\end{align}
+We shall use $\mathcal{N}\left(\mathbf{x}; \boldsymbol{\mu}, \mathbf{V}\right)$ to denote the distribution of an $n$-element jointly Gaussian vector $\mathbf{x}$ with mean $\boldsymbol{\mu}\in\mathbb{R}^{n}$ and covariance matrix $\mathbf{V}\in\mathbb{R}^{n\times n}$: 
+\begin{align}
+\mathcal{N}\left(\mathbf{x}; \boldsymbol{\mu}, \mathbf{V}\ \right) = \frac{1}{\sqrt{\det(2\pi \mathbf{V})}}e^{-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T \mathbf{V}^{-1}(\mathbf{x}-\boldsymbol{\mu})}
+\label{eq:def jointlygaussianpfd}
+\end{align}
+
+The identity matrix of dimension $n\times n$ is represented by $\mathbf{I}_n$, and $\mathcal{U}(M)$ is the uniform distribution over $M$ elements. Notation $[\mathbf{x}]_i$ denotes the $i$-th element of vector $\mathbf{x}$ and, for $n$-element vectors $\mathbf{x}_1$ and $\mathbf{x}_2$, the Euclidean norm and inner product are given by $\Vert \mathbf{x} \Vert \triangleq \sqrt{\sum_{i=1}^n [\mathbf{x}]_i^2}$ and $\langle \mathbf{x}_1,\mathbf{x}_2 \rangle \triangleq \sqrt{\sum_{i=1}^n ([\mathbf{x}_1]_i [\mathbf{x}_2]_i)}$, respectively. The following notation is used for the indicator function $\mathbf{1}_A(\cdot)$:
+\begin{align}
+\mathbf{1}_A(x) \triangleq
+\begin{cases}
+1, & \text{if } x \in A,\\
+0, & \text{if } x \notin A.
+\end{cases}
+\end{align}
+
+We consider a memoryless, scalar, static P2P additive white Gaussian noise (AWGN) channel.
+The received signal in response to a channel input $X^n\in\mathbb{R}^n$ is give by:
+\begin{align}
+Y^n = h X^n + Z^n,    
+\end{align}
+where $h$ is the real-valued constant channel state between the transmitter and receiver, and $Z_i\sim\mathcal{N}(y;0,\sigma^2)$. The channel input is subject to the average power constraint $\mathbb{E}[\Vert X^n \Vert^2] \leq  nP$, and the signal-to-noise ratio (SNR) at the receiver is defined as $\gamma \triangleq \frac{P|h|^2}{\sigma^2}$. 
+
+We make use of power-shell (PS) codewords, a coding scheme Shannon identified as producing the optimal decay of the probability of error with the respect to the blocklength for rates near the capacity of a P2P Gaussian channel \cite{Shannon:1958}. These codewords were also used in higher-order or finite blocklength analyses of the maximal achievable rates for the P2P AWGN channel ~\cite{polyanskiy:TIT2010,Hayashi}.
+ A PS codebook for $n$ channel uses is a set of codewords chosen  independently and uniformly at random from the surface of an $(n-1)$-sphere of radius $r>0$. This sphere, i.e., the ``power-shell'', is the following set: 
+\begin{align}
+\mathcal{S}_{n-1}(r) \triangleq \{ a^n \in \mathbb{R}^n: \Vert a^n \Vert = r \}.
+\label{eq:def n-shpere}
+\end{align}
+Let
+$M^*(n,\epsilon,\gamma)$ denote the maximum number of codewords that can
+be transmitted over $n$ independent channel uses of an AWGN channel
+with SNR $\gamma$, with error probability at most $\epsilon\in(0,1)$. Shannon achievability proof~\cite{Shannon:1948}, together with a strong converse \cite{Shannon1959Gaussian, Yoshihara1964StrongConverse, Wolfowitz1978CodingTheorems}, showed that the information capacity, in nats per channel use, is given by:
+\begin{align} 
+\mathsf{C}(\gamma) 
+  \triangleq %\frac{1}{2}
+  \frac{1}{2} \, \ln(1+\gamma).%, \   \gamma\geq 0.
+\label{eq:def Cx}
+\end{align} 
+for every $\epsilon\in (0,1)$, or 
+\begin{equation}
+    \lim_{n\rightarrow\infty} \frac{1}{n}M^*(n,\epsilon, \gamma) = \mathsf{C}(\gamma).
+\end{equation}
+
+More recently, non-asymptotic, or finite-blocklength fundamental limits on $M^*(n,\epsilon, \gamma)$ have emerged \cite{Hayashi,polyanskiy:thesis}. These limits characterize higher-order terms in the asymptotic expansion of $M^*(n,\epsilon, \gamma)$, and allow us to understand the backoff from channel capacity needed for block codes of finite length $n$. These works have shown that the following expression holds for the average probability of error $\epsilon\in[0,1]$:
+\begin{equation}
+    \log M^*(n,\epsilon, \gamma) = n  \Csf(\gamma) - \sqrt{n}\Vsf(\gamma)\Qsf^{-1}(\epsilon) + o(\sqrt{n}),
+    \label{eq:normalApprox}
+\end{equation}
+where $\Qsf^{-1}(c)$ $\forall x \in\mathbb{R}$ is the inverse of the $\Qsf$-function: %tail distribution of the standard Gaussian random variable, i.e., of 
+\begin{align}
+\Qsf(x) = \int_x^{+\infty} \frac{1}{\sqrt{2\pi}}  {\rm e}^{-t^2/2} \, {d}t,
+\label{eq:def Q}
+\end{align}
+and the P2P Gaussian dispersion function for PS codewords is defined as follows:
+\begin{align}
+\Vsf(x)
+  \triangleq \frac{x(2+x)}{2(1+x)^2}, \  x\geq 0
+\label{eq:def Vx}.
+\end{align}
+Then, \eqref{eq:normalApprox} serves as an accurate proxy for achievable codebook sizes for values of the parameters for which this function is at least comparable with $\sqrt{n}$. 
+% \nrd{The above approximations use} 
+% The P2P Gaussian dispersion function for power-shell codewords is defined as follows~\cite{polyanskiy:TIT2010}:
+% \begin{align}
+% \Vsf(x)
+%   \triangleq \frac{x(2+x)}{2(1+x)^2}, \  x\geq 0.
+% \label{eq:def Vx}
+% \end{align}
+% The normal approximation of the second-order capacity 
+% %\nrd{we have space so please define what you mean by ``second-order capacity'' and then ``normal approximation of the second-order capacity ''} \pss{I will make sure to take care of this in the am} 
+% of the P2P Gaussian channel with received SNR $\gamma$ for $n$ channel uses and  average probability of error $\epsilon$ is defined as:
+% \begin{align}
+% \kappa(n,\gamma,\epsilon) 
+% \triangleq \Csf(\gamma) - \sqrt{\frac{\Vsf(\gamma)}{n}} \Qsf^{-1}(\epsilon), \epsilon\in[0,1],
+% \label{eq:def normal approximation p2p}
+% \end{align} 
+% where $\Qsf^{-1}(\cdot)$ is the inverse of the $\Qsf$-function: %tail distribution of the standard Gaussian random variable, i.e., of 
+% \begin{align}
+% \Qsf(x) = \int_x^{+\infty} \frac{1}{\sqrt{2\pi}}  {\rm e}^{-t^2/2} \, {d}t, \ x \in\mathbb{R},
+% \label{eq:def Q}
+% \end{align}
+% and $\epsilon$ is the average probability of error. $\kappa(n,\gamma,\epsilon)$ is an accurate proxy for achievable rates for values of the parameters for which this function is at least comparable with $\ln(n)/n$.
+ 

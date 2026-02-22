@@ -1,7 +1,8 @@
-\subsection{Proof of \ref{thm:infoDensityAchievabilityDoR}
+\subsection{Proof of Theorem \ref{thm:infoDensityAchievabilityDoR}
 }
 \label{appendix:thm1Proof}
-\begin{table}[h]
+
+\begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|}
 \hline 
@@ -31,12 +32,12 @@ $\mathsf{i}^{n_l}$&The info density computed on the conditional output
 $\bar{\mathsf{i}}^{n_l}$&Info density induced by the average channel output 
 \\ \hline
 \end{tabular}
-
-\caption*{Variable Descriptions}
+\caption{DoR Achievable Variable Overview}
 \label{table:variableDescription}
 \end{table}
 
-Our achievable scheme utilizes a codebook generated at random from the PS of dimension $n$, as described in Section \ref{section:codeconsruction}. 
+Our achievable scheme utilizes a codebook generated at random from the PS of dimension $n$, as described in Section \ref{section:codeconsruction}. For easy reference we have provided a table of the relevant terms in Table \ref{table:variableDescription}
+ 
 We derive the achievability bound based on executing a pair of sequential hypothesis tests (SHT) utilizing the info densities defined in ~\eqref{eq:infoDensityDefnCompact} for each $k\in\mathcal{K}^j$ where $\mathcal{K}^j$ is 
  chosen uniformly at random from the set  $\mathcal{J}$, with $j\sim\mathcal{U}(1,\binom{M}{K})$.
 %Each pair of SHTs test against identical hypotheses utilizing identical statistics, but different thresholds. 
