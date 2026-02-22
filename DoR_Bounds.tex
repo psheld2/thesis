@@ -1,0 +1,20 @@
+\begin{theorem}
+\label{thm:infoDensityAchievabilityDoR}
+(DoR) An $(n,\mathcal{L},M,K,\epsilon_1,\epsilon_2,\bar{n},P)$ early stopping $M$-$K$ code for the P2P AWGN channel exists with the following  bounds:
+
+\begin{subequations}
+\begin{align}
+\bar{n}&\leq n_1+\sum_{l=1}^{\Vert\mathcal{L}\Vert-1}(n_{l+1}-n_l)\left(\frac{K}{M}\underbrace{\Pr\left[\mathsf{i}^{n_l}<\lambda_0\right]}_{\parbox{8em}{\footnotesize{Contribution of $m\in\mathcal{M}^j$ transmitted, but  not being decoded}}}    
+    +\frac{(M-K)}{M}\underbrace{\min\left(1,K\Pr\left[\hspace{.2em}\bar{\mathsf{i}}^{n_l}>\lambda_1\right]\right)}_{\parbox{8em}{\footnotesize{Contribution of $m\notin\mathcal{M}^j$ transmitted, but  not determined as other}}}\right)
+,
+\label{eq:achievableNBar}
+\\\epsilon_1&\leq \frac{K(K-1)}{M}\underbrace{\sum_{l=1}^{\Vert\mathcal{L}\Vert}\Pr\left[\bar{\mathsf{i}}^{n_l}>\lambda_0\right]}_{\parbox{8em}{\footnotesize{$m\in\mathcal{K}^j$ transmitted but decoded as $k\in\mathcal{K}^j\backslash{m}$}}}+\frac{K}{M}\underbrace{\sum_{l=1}^{\Vert\mathcal{L}\Vert-1}\Pr\left[\mathsf{i}^{n_l}<\lambda_1 \right]}_{\parbox{8em}{\footnotesize{$m\in\mathcal{K}^j$ transmitted but decoded as other prior to $n_L$.}}}
++\frac{K}{M}\underbrace{\Pr\left[\mathsf{i}^{n_L}<\lambda_0 \right]}_{\parbox{6em}{\footnotesize{$m\in\mathcal{K}^j$ transmitted but not decoded at  $n_L$}}},
+\label{eq:achievableEpsilon1}
+\\\epsilon_2&\leq\frac{K(M-K)}{M}\underbrace{\sum_{l=1}^{\Vert\mathcal{L}\Vert}\Pr\left[\bar{\mathsf{i}}^{n_l}>\lambda_0 \right]}_{\parbox{6em}{\footnotesize{$m\notin\mathcal{K}^j$ transmitted but decoded as  $k\in\mathcal{K}^j$}}}
+\label{eq:achievableEpsilon2}
+\end{align}
+\label{eq:infoDensityAchievabilityDoR}
+\end{subequations}
+where $\lambda_0,\lambda_1 \in \mathbb{R}$ are constants that may be optimized .  The proof of Theorem \ref{thm:infoDensityAchievabilityDoR} is given in Appendix \ref{appendix:thm1Proof}.
+\end{theorem}
