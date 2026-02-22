@@ -1,12 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{svg}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+\usepackage{svg}
+\begin{document}
 \begin{tikzpicture}[thick]
 \node[inner sep=0pt] (100200_epsilon_perfDoR) at (-13,0)
-{\includegraphics[width=.47\textwidth]{images/plots/K_1_10/DoR_minimize_epsilon_100_150_200.png}};
+{\includegraphics[width=.47\textwidth]{../images/plots/K_1_10/DoR_minimize_epsilon_100_150_200.png}};
 \node[inner sep=0pt] (DoRnbar) at (-4,0)
-{\includegraphics[width=.47\textwidth]{images/plots/K_1_10/TIER_minimize_epsilon_100_150_200.png}};
+{\includegraphics[width=.47\textwidth]{../images/plots/K_1_10/TIER_minimize_epsilon_100_150_200.png}};
 \node[inner sep=0pt] (100200_epsilon_perfDoR) at (-13,-7)
-{\includegraphics[width=.47\textwidth]{images/plots/K_1_10000/DoR_epsilon_100_150_200.png}};
+{\includegraphics[width=.47\textwidth]{../images/plots/K_1_10000/DoR_epsilon_100_150_200.png}};
 \node[inner sep=0pt] (DoRnbar) at (-4,-7)
-{\includegraphics[width=.47\textwidth]{images/plots/K_1_10000/TIER_epsilon_100_150_200.png}};
+{\includegraphics[width=.47\textwidth]{../images/plots/K_1_10000/TIER_epsilon_100_150_200.png}};
 
 
 \node at(-5,-3.5) [right,fill=white,opacity=100,text opacity=100] {TIER };
@@ -21,3 +28,4 @@
 %\node at(-9.4,-4.2) [right,fill=white,opacity=100,text opacity=100] {Decrease $K$};
 \input{commonlabels}
 \end{tikzpicture}
+\end{document}
