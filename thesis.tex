@@ -8,7 +8,7 @@
 
 \documentclass[12pt,reqno,oneside]{amsbook}
 
-%\newcommand{\NOTOVERLEAF}{}
+\newcommand{\NOTOVERLEAF}{}
 
 \usepackage[english]{babel}  %Language needs to be specified for accessibility; currently this is not working well with latexml
 
@@ -242,6 +242,15 @@ This is a standard result from algebra.
 \includegraphics[width=\textwidth]{tikz_plots/lambdaExplore-1.png}
 \label{fig:LambdaResponses}
 \caption{Respnse to change in $\lambda_0, \lambda_1$}
+\end{figure}
+\fi
+
+\ifdefined\NOTOVERLEAF
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{tikz_plots/PerformanceResults_DorToTier-1.png}
+\label{fig:LambdaResponses}
+\caption{$Achievable Results$}
 \end{figure}
 \fi
 
